@@ -1,19 +1,22 @@
 # NN Telegram App
 
-A simple single page application built with HTML, CSS and vanilla JavaScript.
+A simple single page application rebuilt with **React**. All views are implemented as React components and routed via `HashRouter`.
 
 ## Running locally
 
-Because the app fetches additional HTML files via JavaScript it must be served 
-over HTTP. Opening the `index.html` file directly from the file system will 
-result in a CORS error in the browser.
-
-Use any static file server. For example with Python 3:
+Install dependencies and start the development server:
 
 ```bash
-python3 -m http.server --directory app 8080
+npm install
+npm start
 ```
 
-Then open `http://localhost:8080/index.html` in your browser.
+Parcel will serve the application and open it in your browser. When you are ready
+to deploy a static build use:
 
-Alternatively you can use `npx http-server` or any other static server.
+```bash
+npm run build
+```
+
+The contents of the `build/` directory can then be hosted with any static file
+server.
