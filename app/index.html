@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Найдите юриста за 1 минуту</title>
-  <style>
+  <style data-home>
     /* Цвета и типографика из дизайн-системы */
     :root {
       --color-primary: #1954D6;
@@ -78,13 +78,16 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Найдите юриста за 1 минуту</h1>
-    <a href="categories.html" class="btn">Подобрать юриста</a>
-    <div class="checkbox">
-      <input type="checkbox" id="consent" />
-      <label for="consent">Мне 18+ и я резидент РФ</label>
+  <div id="app">
+    <div class="container">
+      <h1>Найдите юриста за 1 минуту</h1>
+      <a href="#categories" class="btn">Подобрать юриста</a>
+      <div class="checkbox">
+        <input type="checkbox" id="consent" />
+        <label for="consent">Мне 18+ и я резидент РФ</label>
+      </div>
     </div>
   </div>
+  <script src="app.js" defer></script>
 </body>
 </html>
