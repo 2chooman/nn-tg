@@ -1,10 +1,12 @@
-const {
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import {
   HashRouter,
   Routes,
   Route,
   Link,
-  useNavigate
-} = ReactRouterDOM;
+  useNavigate,
+} from 'react-router-dom';
 
 function Home() {
   return (
