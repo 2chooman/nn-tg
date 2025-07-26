@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Юристы</title>
+  <style>
+    /* Токены дизайн-системы */
+    :root {
+      --color-primary: #1954D6;
+      --color-surface: #FFFFFF;
+      --color-background: #F5F7FA;
+      --color-text-primary: #0F1114;
+      --color-text-secondary: #4B5563;
+      --color-border: #E5E7EB;
+      --color-online: #22C55E;
+      --font-stack: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --radius: 12px;
+      --padding-page: clamp(16px, 4vw, 24px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--color-background);
+      color: var(--color-text-primary);
+      display: flex;
+      justify-content: center;
+      padding: var(--padding-page);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 1.5rem; /* ~24px */
+      font-weight: 600;
+      margin: 0 0 0.25rem;
+    }
+    .subtitle {
+      font-size: 0.875rem; /* ~14px */
+      color: var(--color-text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background-color: var(--color-surface);
+      border-radius: var(--radius);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #D1D5DB;
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+    .info {
+      flex: 1;
+      min-width: 0;
+    }
+    .name {
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0 0 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .role {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      margin: 0 0 4px;
+    }
+    .status {
+      display: flex;
+      align-items: center;
+      font-size: 0.75rem; /* ~12px */
+      color: var(--color-text-secondary);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color-online);
+      margin-right: 4px;
+    }
+
+    .btn-chat {
+      flex-shrink: 0;
+      padding: 6px 12px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      background-color: var(--color-primary);
+      border: none;
+      border-radius: var(--radius);
+      text-decoration: none;
+      cursor: pointer;
+      margin-left: 12px;
+    }
+
+    @media (max-width: 360px) {
+      .item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-chat {
+        margin: 8px 0 0 52px;
+        width: calc(100% - 52px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Юристы</h1>
+    <div class="subtitle">Кражи · Москва</div>
+    <div class="card">
+      <ul class="list">
+        <li class="item">
+          <div class="avatar"></div>
+          <div class="info">
+            <p class="name">Анна Козлова</p>
+            <p class="role">Адвокат по кражам</p>
+            <div class="status">
+              <span class="status-dot"></span>
+              <span>online</span>
+            </div>
+          </div>
+          <a href="#" class="btn-chat">Чат</a>
+        </li>
+        <li class="item">
+          <div class="avatar"></div>
+          <div class="info">
+            <p class="name">Сергей Новиков</p>
+            <p class="role">Адвокат по кражам</p>
+            <div class="status">
+              <span class="status-dot"></span>
+              <span>от 3 000 ₽/час</span>
+            </div>
+          </div>
+          <a href="#" class="btn-chat">Чат</a>
+        </li>
+        <li class="item">
+          <div class="avatar"></div>
+          <div class="info">
+            <p class="name">Дмитрий Смирнов</p>
+            <p class="role">Адвокат по кражам</p>
+            <div class="status">
+              <span class="status-dot"></span>
+              <span>от 4 000 ₽/час</span>
+            </div>
+          </div>
+          <a href="#" class="btn-chat">Чат</a>
+        </li>
+        <li class="item">
+          <div class="avatar"></div>
+          <div class="info">
+            <p class="name">Elena Morozova</p>
+            <p class="role">Адвокат по кражам</p>
+            <div class="status">
+              <span class="status-dot"></span>
+              <span>от 3 000 ₽/час</span>
+            </div>
+          </div>
+          <a href="#" class="btn-chat">Чат</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

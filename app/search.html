@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Настройка поиска</title>
+  <style>
+    /* Токены дизайн-системы */
+    :root {
+      --color-primary: #1954D6;
+      --color-bg-secondary: #F0F2F5;
+      --color-background: #F5F7FA;
+      --color-surface: #FFFFFF;
+      --color-border: #D1D5DB;
+      --color-text-primary: #0F1114;
+      --font-stack: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --radius: 12px;
+      --padding-page: clamp(16px, 4vw, 24px);
+    }
+
+    /* 1) Запретим горизонтальный скролл */
+    html, body {
+      overflow-x: hidden;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: var(--padding-page);
+      font-family: var(--font-stack);
+      background-color: var(--color-background);
+      color: var(--color-text-primary);
+    }
+
+    /* 2) Обёртка-контейнер */
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      max-width: 100vw;
+      padding: 0 var(--padding-page);
+      box-sizing: border-box;
+    }
+
+    .card {
+      background-color: var(--color-surface);
+      width: 100%;
+      max-width: 400px;
+      border-radius: var(--radius);
+      padding: var(--padding-page);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      font-size: 1.25rem;    /* ~20px */
+      font-weight: 600;
+      margin: 0 0 1.5rem;
+      text-align: center;
+    }
+
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.875rem;   /* ~14px */
+      margin-bottom: 0.5rem;
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    /* 3) Убираем минимальную ширину flex-элементов, чтобы они сжимались */
+    .input-group input,
+    .range-group input {
+      min-width: 0;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      font-size: 0.875rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background-color: var(--color-bg-secondary);
+    }
+
+    .input-group .icon {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      width: 1rem;
+      height: 1rem;
+      opacity: 0.6;
+    }
+
+    .range-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .range-group input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background-color: var(--color-bg-secondary);
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .checkbox input {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 0.875rem 0;
+      font-size: 1rem;       /* ~16px */
+      font-weight: 500;
+      color: #FFFFFF;
+      background-color: var(--color-primary);
+      border: none;
+      border-radius: var(--radius);
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* 4) Защита иконок от выхода за границы */
+    img, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Адаптив для узких экранов */
+    @media (max-width: 360px) {
+      .range-group {
+        flex-direction: column;
+      }
+      .range-group input {
+        width: 100%;
+      }
+      .input-group input {
+        padding-left: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card">
+      <h1>Настройка поиска</h1>
+      <div class="field">
+        <label for="city">Город</label>
+        <div class="input-group">
+          <img src="icons/location.svg" alt="" class="icon" />
+          <input type="text" id="city" placeholder="Введите город" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Диапазон цены</label>
+        <div class="range-group">
+          <input type="number" placeholder="От" />
+          <input type="number" placeholder="До ₽" />
+        </div>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="with-fee" />
+        <label for="with-fee">Показывать юристов с гонораром</label>
+      </div>
+      <a href="#" class="btn">Показать 124 юриста</a>
+    </div>
+  </div>
+</body>
+</html>
