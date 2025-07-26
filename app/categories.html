@@ -58,9 +58,8 @@
       color: #FFFFFF;
     }
     /* Иконки можно вставлять через <img> или <svg>-спрайт */
-    .categories button img {
-      width: 16px;
-      height: 16px;
+    .categories button .icon {
+      font-size: 16px;
     }
     .footer {
       padding: 16px;
@@ -87,33 +86,33 @@
     <h1>Выберите категорию</h1>
     <div class="categories">
       <button class="selected">
-        <img src="icons/theft.svg" alt="" />
+        <span class="icon" role="img" aria-label="Кражи">🚨</span>
         Кражи
       </button>
       <button>
-        <img src="icons/drugs.svg" alt="" />
+        <span class="icon" role="img" aria-label="Наркотики">💊</span>
         Наркотики
       </button>
       <button>
-        <img src="icons/fraud.svg" alt="" />
+        <span class="icon" role="img" aria-label="Мошенничество">💳</span>
         Мошенничество
       </button>
       <button>
-        <img src="icons/accident.svg" alt="" />
+        <span class="icon" role="img" aria-label="ДТП">🚗</span>
         ДТП
       </button>
       <button>
-        <img src="icons/economy.svg" alt="" />
+        <span class="icon" role="img" aria-label="Экономика">💰</span>
         Экономика
       </button>
       <button>
-        <img src="icons/hooliganism.svg" alt="" />
+        <span class="icon" role="img" aria-label="Хулиганство">⚠️</span>
         Хулиганство
       </button>
     </div>
   </div>
   <div class="footer">
-    <a href="#" class="btn">Показать юристов</a>
+    <a href="search.html" class="btn">Показать юристов</a>
   </div>
 </body>
 </html>
