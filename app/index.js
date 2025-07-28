@@ -8,6 +8,52 @@ import {
   useNavigate,
 } from 'react-router-dom';
 
+const categories = [
+  { icon: '🚨', label: 'Кражи', selected: true },
+  { icon: '💊', label: 'Наркотики' },
+  { icon: '💳', label: 'Мошенничество' },
+  { icon: '🚗', label: 'ДТП' },
+  { icon: '💰', label: 'Экономика' },
+  { icon: '⚠️', label: 'Хулиганство' },
+];
+
+const lawyers = [
+  { name: 'Анна Козлова', role: 'Адвокат по кражам', status: 'online' },
+  { name: 'Сергей Новиков', role: 'Адвокат по кражам', status: 'от 3 000 ₽/час' },
+  { name: 'Дмитрий Смирнов', role: 'Адвокат по кражам', status: 'от 4 000 ₽/час' },
+  { name: 'Elena Morozova', role: 'Адвокат по кражам', status: 'от 3 000 ₽/час' },
+];
+
+function CategoryButton({ icon, label, selected }) {
+  return (
+    <button className={selected ? 'selected' : ''}>
+      <span role="img" aria-label={label} className="icon">
+        {icon}
+      </span>
+      {label}
+    </button>
+  );
+}
+
+function LawyerItem({ name, role, status }) {
+  return (
+    <li className="item">
+      <div className="avatar" />
+      <div className="info">
+        <p className="name">{name}</p>
+        <p className="role">{role}</p>
+        <div className="status">
+          <span className="status-dot" />
+          <span>{status}</span>
+        </div>
+      </div>
+      <a href="#" className="btn-chat">
+        Чат
+      </a>
+    </li>
+  );
+}
+
 function Home() {
   return (
     <div className="home">
@@ -29,12 +75,9 @@ function Categories() {
     <div className="categories-page">
       <h1>Выберите категорию</h1>
       <div className="categories">
-        <button className="selected"><span role="img" aria-label="Кражи" className="icon">🚨</span>Кражи</button>
-        <button><span role="img" aria-label="Наркотики" className="icon">💊</span>Наркотики</button>
-        <button><span role="img" aria-label="Мошенничество" className="icon">💳</span>Мошенничество</button>
-        <button><span role="img" aria-label="ДТП" className="icon">🚗</span>ДТП</button>
-        <button><span role="img" aria-label="Экономика" className="icon">💰</span>Экономика</button>
-        <button><span role="img" aria-label="Хулиганство" className="icon">⚠️</span>Хулиганство</button>
+        {categories.map((c) => (
+          <CategoryButton key={c.label} {...c} />
+        ))}
       </div>
       <div className="footer">
         <button className="btn" onClick={() => navigate('/search')}>Показать юристов</button>
@@ -81,42 +124,9 @@ function List() {
         <div className="subtitle">Кражи · Москва</div>
         <div className="card">
           <ul className="list">
-            <li className="item">
-              <div className="avatar" />
-              <div className="info">
-                <p className="name">Анна Козлова</p>
-                <p className="role">Адвокат по кражам</p>
-                <div className="status"><span className="status-dot" /><span>online</span></div>
-              </div>
-              <a href="#" className="btn-chat">Чат</a>
-            </li>
-            <li className="item">
-              <div className="avatar" />
-              <div className="info">
-                <p className="name">Сергей Новиков</p>
-                <p className="role">Адвокат по кражам</p>
-                <div className="status"><span className="status-dot" /><span>от 3 000 ₽/час</span></div>
-              </div>
-              <a href="#" className="btn-chat">Чат</a>
-            </li>
-            <li className="item">
-              <div className="avatar" />
-              <div className="info">
-                <p className="name">Дмитрий Смирнов</p>
-                <p className="role">Адвокат по кражам</p>
-                <div className="status"><span className="status-dot" /><span>от 4 000 ₽/час</span></div>
-              </div>
-              <a href="#" className="btn-chat">Чат</a>
-            </li>
-            <li className="item">
-              <div className="avatar" />
-              <div className="info">
-                <p className="name">Elena Morozova</p>
-                <p className="role">Адвокат по кражам</p>
-                <div className="status"><span className="status-dot" /><span>от 3 000 ₽/час</span></div>
-              </div>
-              <a href="#" className="btn-chat">Чат</a>
-            </li>
+            {lawyers.map((l) => (
+              <LawyerItem key={l.name} {...l} />
+            ))}
           </ul>
         </div>
       </div>
