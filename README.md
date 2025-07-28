@@ -11,12 +11,10 @@ npm install
 npm start
 ```
 
-Parcel will serve the application and open it in your browser. When you are ready
-to deploy a static build use:
+Parcel will serve the application and open it in your browser. When you are ready to deploy a static build use:
 
 ```bash
 npm run build
 ```
 
-The contents of the `build/` directory can then be hosted with any static file
-server.
+The contents of the `build/` directory can then be hosted with any static file server. The build script sets `--public-url ./` so asset paths remain relative, which is necessary for hosting on GitHub Pages project sites.
